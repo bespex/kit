@@ -6,7 +6,7 @@ import { DEFAULT_STYLE } from "./style.js";
 import { AXES } from "./types.js";
 export const DEFAULT_APPEARANCE = { theme: "auto", style: "calm" };
 /** Themes that left the set, and the one a stored choice moves to (PLAN.md K8). */
-export const RETIRED = { sepia: "paper", contrast: "graphite", sage: "ink" };
+export const RETIRED = { sepia: "paper", contrast: "graphite", sage: "ink", neon: "studio" };
 /** Styles that left the set, and the one a stored choice moves to. */
 export const RETIRED_STYLES = { plastic: "calm" };
 /** The seven steps of a stored style: a preset's, or the stored steps with unknown values replaced. */

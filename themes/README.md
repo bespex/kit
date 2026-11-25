@@ -3,7 +3,7 @@
 Colour themes and styles for the be spex apps. The user chooses two things in every app, independently:
 
 - a **colour theme** (only colours): `auto`, `paper`, `frost`, `sage`, `colorful`, `graphite`, `fjord`,
-  `forest`, `moon`, `elegance`, `neon`, `terminal` (12, four in a row in the picker);
+  `forest`, `moon`, `elegance`, `studio`, `terminal` (12, four in a row in the picker);
 - a **style** (only form and weight, no colour of its own): one of three presets, `tool`, `calm`
   (default), `stage`, or seven steps of the user's own.
 

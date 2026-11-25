@@ -9,7 +9,7 @@ import { AXES, type Appearance, type Axis, type Style } from "./types.js";
 export const DEFAULT_APPEARANCE: Appearance = { theme: "auto", style: "calm" };
 
 /** Themes that left the set, and the one a stored choice moves to (PLAN.md K8). */
-export const RETIRED: Record<string, string> = { sepia: "paper", contrast: "graphite", sage: "ink" };
+export const RETIRED: Record<string, string> = { sepia: "paper", contrast: "graphite", sage: "ink", neon: "studio" };
 
 /** Styles that left the set, and the one a stored choice moves to. */
 export const RETIRED_STYLES: Record<string, string> = { plastic: "calm" };

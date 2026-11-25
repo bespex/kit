@@ -1,0 +1,20 @@
+{
+  "id": "studio",
+  "name": { "de": "Studio", "en": "Studio" },
+  "scheme": "dark",
+  "bg": "#15181e",
+  "fg": "#e6e3dd",
+  "accent": "#cdb68a",
+  "ok": "#8fc4a0",
+  "warn": "#e8955a",
+  "danger": "#e0707f",
+  "info": "#8fb0c8",
+  "ai": "#a3a8d6",
+  "tint": "#6b7a90",
+  "onAccent": "#15181e",
+  "series": ["#9ea6e6", "#62c4a6", "#f08fa8", "#4fb8d8", "#cdd27a", "#b0b8c4"],
+  "areas": ["#3a4250", "#3a4250", "#0b0d11", "#3a4250"],
+  "areaBoost": 2.4,
+  "code": { "tag": "#8fb0c8", "attr": "#cdb68a", "string": "#8fc4a0", "comment": "#8a919c", "keyword": "#a3a8d6", "meta": "#d4a3c0", "entity": "#e8955a" },
+  "surfaces": { "panel": "#2a2f38", "raised": "#343a45", "field": "#101318", "hover": "#363c47", "line": "#3a404b", "overlay": "#30353f", "overlayHover": "#3b414d", "overlayLine": "#4a515e" }
+}

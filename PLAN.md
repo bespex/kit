@@ -53,9 +53,10 @@ gestaltet. Themen dürfen dabei wegfallen, zusammengelegt oder neu entworfen wer
 - **Stand 2026-11-26:** Nutzer behält Papier, Graphit, Fjord, Wald, Mond, Eleganz. Entfernt: Sepia
   (→ Papier), Kontrast (→ Graphit), Salbei (→ Tinte; zu viel Pastellgrün). Neu: Frost (kühles Hell, Gegenstück
   zu Fjord) und Tinte (neutrales Weiß, Tintenblau; vorher war kein helles Thema neutral). Überarbeitet: Bunt
-  (neutrale Fläche, Mint/Himmelblau/Koralle/Sonnengelb statt Lila, `areaBoost` = 2), Neon (Schwarz-Violett,
-  Leuchtfarben, `shadow` als magentafarbener Schein), Terminal (Phosphorgrün, ANSI-Farben). Reihenfolge:
-  Automatisch, Papier, Frost, Tinte, Bunt, dann die sieben dunklen.
+  (neutrale Fläche, Mint/Himmelblau/Koralle/Sonnengelb statt Lila, `areaBoost` = 2), Terminal (Phosphorgrün, ANSI-Farben). Reihenfolge:
+  Automatisch, Papier, Frost, Tinte, Bunt, dann die sieben dunklen. Neon ersetzt durch **Studio** (→ Studio;
+  Nutzer wollte ein edles dunkles Thema, dessen Mitte sich klar von den Leisten absetzt: fast schwarze
+  Leisten und Spalten, schiefergraues Deck, Champagnergold). Das Feld `shadow` bleibt für künftige Themen.
 - **Stile, Stand 2026-11-26:** Werkzeug und Ruhig bleiben (Nutzer: „richtig gut“, „super“), Plastisch entfällt
   (→ Ruhig). Bühne neu: rund, Linien, Leisten kontrastiert, Hervorhebung Bühne, normal, farbig, Effekte dezent;
   vorher verwischten Flächen, reiche Effekte und auslaufende Bereiche die Grenzen der Ansichten in CodeDeck.

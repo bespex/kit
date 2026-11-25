@@ -77,11 +77,12 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; }
 .sw .dots { position: absolute; right: 6px; bottom: 5px; display: flex; gap: 3px; }
 .sw .dots i { width: 7px; height: 7px; border-radius: 50%; display: block; }
 .sw .half { position: absolute; inset: 0; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
-.axes { display: grid; grid-template-columns: max-content max-content max-content max-content; gap: 6px 12px; align-items: center; justify-content: start; margin-top: 8px; }
-.axes .axis:nth-child(4n+3) { margin-left: 12px; }
-.axes .axis { font-size: .92em; }
-.seg { display: inline-flex; border: 1px solid var(--sx-line-strong, #888); border-radius: var(--sx-radius-m, 6px); overflow: hidden; }
-.seg button { border: 0; padding: 3px 10px; font-size: .88em; border-left: 1px solid var(--sx-line, #ccc); }
+.axes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; margin-top: 8px; }
+.axis-cell { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.axes .axis { font-size: .85em; color: var(--sx-ink-2, #666); }
+.seg { display: flex; border: 1px solid var(--sx-line-strong, #888); border-radius: var(--sx-radius-m, 6px); overflow: hidden; }
+.seg button { flex: 1; min-width: 0; border: 0; padding: 3px 6px; font-size: .88em; border-left: 1px solid var(--sx-line, #ccc);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .seg button:first-child { border-left: 0; }
 .seg button[aria-checked="true"] { background: var(--sx-accent-fill, #36c); color: var(--sx-on-accent, #fff); }
 .more { border: 0; padding: 2px 0; color: var(--sx-accent-ink, #36c); font-size: .92em; }
@@ -172,9 +173,9 @@ class SxAppearance extends HTMLElement {
         const presets = STYLES.map((p) => radio(`preset:${p.id}`, preset === p.id, "tile", `<span class="name">${esc(p.name[this.#lang()])}</span><span class="hint">${esc(T[`${p.id}.hint`] ?? "")}</span>`));
         presets.push(radio("custom", !preset, "tile", `<span class="name">${esc(T.custom)}</span><span class="hint">${esc(T["custom.hint"])}</span>`));
         const axes = this.#axes()
-            .map((axis) => `<span class="axis" title="${esc(T[`${axis}.hint`])}">${esc(T[axis])}</span><span class="seg" role="radiogroup" aria-label="${esc(T[axis])}">${AXES[axis]
+            .map((axis) => `<div class="axis-cell"><span class="axis" title="${esc(T[`${axis}.hint`])}">${esc(T[axis])}</span><span class="seg" role="radiogroup" aria-label="${esc(T[axis])}">${AXES[axis]
             .map((step) => radio(`axis:${axis}:${step}`, style[axis] === step, "", esc(T[step])))
-            .join("")}</span>`)
+            .join("")}</span></div>`)
             .join("");
         this.#root.innerHTML = `<style>${OWN_CSS}</style>
       <div class="group"><p class="label" part="label">${esc(T.theme)}</p><div class="grid" role="radiogroup" aria-label="${esc(T.theme)}">${themes.join("")}</div></div>
