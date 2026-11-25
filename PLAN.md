@@ -23,6 +23,10 @@ Einstellungsseiten.
 - Die abgeleiteten Reihenfarben (`seriesTones`, aus CodeDeck) liefern bei manchen Themen zwei fast
   gleiche Farben (Salbei: Abstand 1,3); Salbei und Sepia setzen sie deshalb fest. Für eigene Themen
   verbessern.
+- Die Hinweise der fertigen Stile in `<sx-appearance>` nennen auch Achsen, die eine App nicht anbietet
+  (CodeDeck: „Leisten abgesetzt“, „Aktuelles betont“). Hinweise aus den angebotenen Achsen bilden.
+- CodeDeck verlor mit dem Umstieg zwei Feinheiten: das zweite Ende des Verlaufs auf dem Hauptknopf
+  (`accent-fill-2`, braucht `reach` im Kit) und Mono für Terminal (Achse Schrift, oben).
 - Exakte Bereichsflächen je Thema (CodeDecks `zoneSurfaces`), falls das Mischen bei der Umstellung von
   CodeDeck nicht reicht.
 - Ein Rust-Crate mit denselben Theme-JSON-Dateien, erst wenn etwas außerhalb der Oberfläche Themen braucht.
@@ -48,7 +52,7 @@ gestaltet. Themen dürfen dabei wegfallen, zusammengelegt oder neu entworfen wer
 
 | Schritt | App | Inhalt | Abnahme |
 |---|---|---|---|
-| U1 | CodeDeck | Thema und Stil trennen: jedes bisherige Thema wird Farbthema + Stil (`events` bleibt CodeDecks Einstellung, `glow`/`glass`/`gradient`/`backdrop` folgen `effects`, `zones` folgt `color`); `--t-*` als Alias auf `--sx-*`, dann ersetzen; IDs abbilden (`codedeck` → `graphite`, `fancy` → `neon`); `tools/theme-check.mjs` und `palette.ts` entfallen zugunsten des Kits | jedes bisherige Thema sieht mit seinem Stil aus wie vorher (Screenshot-Vergleich) |
+| U1 | CodeDeck | gebaut 2026-11-25 (CodeDeck `docs/STYLING.md` Stand-Zeile): Rollen `--sx-*`, eigene Stufen `--cd-*`, Achsen Form, Gliederung, Farbigkeit, Effekte; „Ereignisse“ bleibt CodeDecks Einstellung; alte Themes übersetzt | Abnahme am Desktop steht aus |
 | U2 | Qiew `packages/frame` | vier feste Blöcke durch den Satz ersetzen, `--x-*` → `code-*`, `--bg`/`--fg`/`--surface`/`--border` → Rollen, Auswahl im Menü (`layout="compact"`); `soft-light` → `paper`, `soft-dark` → `graphite`, `nord` → `fjord` | jede Qiew-App in allen Themen lesbar; trisq bleibt ohne Wahl |
 | U3 | Tasqlet | gebaut 2026-11-25 (Tasqlet D38) | Abnahme am Desktop steht aus |
 | U4 | Maillet | feste Farben der drei HTML-Dateien auf die Grundrollen umstellen, `dist/` als Kopie mit Versionsvermerk, Auswahl in den Einstellungen statt Mond-Knopf, gespeichert in der Konfiguration; „hell“/„dunkel“ → `paper`/`graphite` | alle drei Fenster in jedem Thema lesbar |
