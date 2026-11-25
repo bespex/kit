@@ -16,7 +16,8 @@ Einstellungsseiten.
   Bereichsfarben?
 - `moon` und `elegance` liegen nah beieinander (Gold auf Dunkel); `moon` kühler und blauer ziehen.
 - **Akzent der App:** Eine Einstellung ersetzt den Akzent des Themas durch die Markenfarbe der App
-  (CodeDeck-Orange, Maillet-Petrol, Tasqlet-Rostrot). Die Prüfung müsste diese Paare mittesten.
+  (CodeDeck-Orange, Maillet-Petrol, Tasqlet-Rostrot). Die Prüfung müsste diese Paare mittesten. Seit dem
+  Umstieg zeigt Maillet in Papier und Graphit Orange statt seines Blaus/Violetts; mit K8 klären.
 - **Eigene Themen** der Nutzer als Datei im Konfig-Ordner der App, geprüft mit `check`, mit Hinweis
   abgelehnt, wenn sie die Prüfung verfehlen (Tasqlet 2.6 wartet darauf). Dafür bräuchte `apply` einen
   Weg für Themen außerhalb von `sx.css` (Variablen aus `themeDecls` direkt aufs Element).
@@ -42,10 +43,23 @@ Er muss den Bestand nicht abbilden: Wenn die Apps umgestellt sind, wird ein eige
 gestaltet. Themen dürfen dabei wegfallen, zusammengelegt oder neu entworfen werden, und Werte dürfen sich
 ändern. Die Brainstorm-Punkte zu `colorful`, `moon`/`elegance` und Papier gehen darin auf.
 
-- Ziel: wenige, klar verschiedene Themen, je eins hell und dunkel als Grundlage, dazu Charaktere mit
-  eigener Rolle im Satz. Jedes besteht die Prüfung mit jedem Stil.
+- Ziel: **genau 12 Farbthemen** (in der Auswahl 4 breit, 3 hoch; heute 12 plus „Automatisch“), klar
+  verschieden, je eins hell und dunkel als Grundlage, dazu Charaktere mit eigener Rolle im Satz. Jedes
+  besteht die Prüfung mit jedem Stil. Ob „Automatisch“ eine Kachel bleibt oder anders gewählt wird, gehört
+  dazu.
+- **Drei Stile** plus „Eigener“, damit sie in eine Zeile passen (Entscheidung des Nutzers 2026-11-25).
 - IDs, die wegfallen, bildet `normalize` auf das nächstliegende Thema ab, damit gespeicherte Wahlen der
-  Apps weiter gelten.
+  Apps weiter gelten (`RETIRED` in `apply.ts`).
+- **Stand 2026-11-26:** Nutzer behält Papier, Graphit, Fjord, Wald, Mond, Eleganz. Entfernt: Sepia
+  (→ Papier), Kontrast (→ Graphit), Salbei (→ Tinte; zu viel Pastellgrün). Neu: Frost (kühles Hell, Gegenstück
+  zu Fjord) und Tinte (neutrales Weiß, Tintenblau; vorher war kein helles Thema neutral). Überarbeitet: Bunt
+  (neutrale Fläche, Mint/Himmelblau/Koralle/Sonnengelb statt Lila, `areaBoost` = 2), Neon (Schwarz-Violett,
+  Leuchtfarben, `shadow` als magentafarbener Schein), Terminal (Phosphorgrün, ANSI-Farben). Reihenfolge:
+  Automatisch, Papier, Frost, Tinte, Bunt, dann die sieben dunklen.
+- **Stile, Stand 2026-11-26:** Werkzeug und Ruhig bleiben (Nutzer: „richtig gut“, „super“), Plastisch entfällt
+  (→ Ruhig). Bühne neu: rund, Linien, Leisten kontrastiert, Hervorhebung Bühne, normal, farbig, Effekte dezent;
+  vorher verwischten Flächen, reiche Effekte und auslaufende Bereiche die Grenzen der Ansichten in CodeDeck.
+  Regler für „Eigener“ zwei Achsen je Zeile. Abnahme der neuen Bühne durch den Nutzer offen.
 - Abnahme gemeinsam mit dem Nutzer an der Galerie, in jedem Stil.
 
 ### K5 Umstellung der übrigen Apps
@@ -55,7 +69,7 @@ gestaltet. Themen dürfen dabei wegfallen, zusammengelegt oder neu entworfen wer
 | U1 | CodeDeck | gebaut 2026-11-25 (CodeDeck `docs/STYLING.md` Stand-Zeile): Rollen `--sx-*`, eigene Stufen `--cd-*`, Achsen Form, Gliederung, Farbigkeit, Effekte; „Ereignisse“ bleibt CodeDecks Einstellung; alte Themes übersetzt | Abnahme am Desktop steht aus |
 | U2 | Qiew `packages/frame` | vier feste Blöcke durch den Satz ersetzen, `--x-*` → `code-*`, `--bg`/`--fg`/`--surface`/`--border` → Rollen, Auswahl im Menü (`layout="compact"`); `soft-light` → `paper`, `soft-dark` → `graphite`, `nord` → `fjord` | jede Qiew-App in allen Themen lesbar; trisq bleibt ohne Wahl |
 | U3 | Tasqlet | gebaut 2026-11-25 (Tasqlet D38) | Abnahme am Desktop steht aus |
-| U4 | Maillet | feste Farben der drei HTML-Dateien auf die Grundrollen umstellen, `dist/` als Kopie mit Versionsvermerk, Auswahl in den Einstellungen statt Mond-Knopf, gespeichert in der Konfiguration; „hell“/„dunkel“ → `paper`/`graphite` | alle drei Fenster in jedem Thema lesbar |
+| U4 | Maillet | gebaut 2026-11-25 (Maillet `DESIGN.md` 5.9): `dist/kit` als Kopie (`tools/update-kit.sh <tag>`), `dist/look.js` für alle vier Fenster, Auswahl unter General → Appearance, `appearance` in `config.json`, Achsen Form, Gliederung, Leisten; Mond-Knopf entfallen, alte Wahl hell/dunkel übernommen | Abnahme am Desktop steht aus |
 
 ### K6 Crate `bespex-desktop`
 

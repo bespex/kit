@@ -1,27 +1,19 @@
 {
   "id": "terminal",
-  "name": {
-    "de": "Terminal",
-    "en": "Terminal"
-  },
+  "name": { "de": "Terminal", "en": "Terminal" },
   "scheme": "dark",
-  "bg": "#0a0d0b",
-  "fg": "#d4ead8",
-  "accent": "#d78cff",
-  "ok": "#87e07a",
+  "bg": "#0a0f0b",
+  "fg": "#c6f7d0",
+  "accent": "#39ff6a",
+  "ok": "#5fd7af",
   "warn": "#ffd75f",
-  "danger": "#ff6b6b",
-  "info": "#87afff",
-  "ai": "#5fd7ff",
-  "done": "#87d7af",
-  "tint": "#3fbf6a",
-  "onAccent": "#0a0d0b",
-  "series": [
-    "#5fd7ff",
-    "#afafff",
-    "#87d7af",
-    "#d7af87",
-    "#afd75f",
-    "#ffafd7"
-  ]
+  "danger": "#ff5f5f",
+  "info": "#5fafff",
+  "ai": "#d787ff",
+  "tint": "#39ff6a",
+  "onAccent": "#0a0f0b",
+  "series": ["#5fd7ff", "#afafff", "#87d7af", "#d7af87", "#afd75f", "#ffafd7"],
+  "areas": ["#5fafff", "#39ff6a", "#d787ff", "#ffd75f"],
+  "code": { "tag": "#5fafff", "attr": "#ffd75f", "string": "#87d75f", "comment": "#6f9a78", "keyword": "#d787ff", "meta": "#ff87af", "entity": "#5fd7d7" },
+  "surfaces": { "panel": "#0f1611", "raised": "#152018", "field": "#070b08", "hover": "#1a281e", "line": "#1f3324", "mark": "#4a3f00" }
 }

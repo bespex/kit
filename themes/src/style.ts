@@ -11,8 +11,9 @@
 import { mix } from "./color.js";
 import type { Axis, Roles, Style } from "./types.js";
 
-/** A colour from roles: a role's name, or `[a, b, t]` = a moved by t towards b (OKLab). */
-export type Expr = string | [Expr, Expr, number];
+/** A colour from roles: a role's name, or `[a, b, t]` = a moved by t towards b (OKLab). With a fourth
+ *  element `"boost"`, t is multiplied by the theme's `area-boost` (a theme that wants stronger regions). */
+export type Expr = string | [Expr, Expr, number] | [Expr, Expr, number, "boost"];
 /** A value of a style variable: a colour recipe, or plain CSS (`{ css: "…" }`). */
 export type Value = Expr | { css: string };
 
@@ -117,7 +118,7 @@ function areas(t: number, seriesFill: string): Record<string, Value> {
     "series-fill": { css: seriesFill }, "area-ink": "ink", "area-ink-2": "ink-2", "area-ink-3": "ink-3",
     "area-scheme": { css: "var(--sx-scheme)" },
   };
-  for (let k = 1; k <= 4; k++) out[`area-${k}-bg`] = t ? ["panel", `area-${k}`, t] : "panel";
+  for (let k = 1; k <= 4; k++) out[`area-${k}-bg`] = t ? ["panel", `area-${k}`, t, "boost"] : "panel";
   return out;
 }
 
@@ -130,8 +131,9 @@ export const DEFAULT_STYLE: Style = {
 export function cssValue(v: Value): string {
   if (typeof v === "object" && !Array.isArray(v)) return v.css;
   if (typeof v === "string") return `var(--sx-${v})`;
-  const [a, b, t] = v;
-  return `color-mix(in oklab, ${cssValue(a)}, ${cssValue(b)} ${+(t * 100).toFixed(2)}%)`;
+  const [a, b, t, boost] = v;
+  const pct = +(t * 100).toFixed(2);
+  return `color-mix(in oklab, ${cssValue(a)}, ${cssValue(b)} ${boost ? `calc(${pct}% * var(--sx-area-boost, 1))` : `${pct}%`})`;
 }
 
 /** A colour recipe worked out on the roles of a theme (and the style variables already worked out). */
@@ -141,7 +143,8 @@ export function evaluate(v: Expr, roles: Record<string, string>): string {
     if (!c) throw new Error(`unknown role ${v}`);
     return c;
   }
-  return mix(evaluate(v[0], roles), evaluate(v[1], roles), v[2]);
+  const t = v[3] === "boost" ? v[2] * Number(roles["area-boost"] ?? 1) : v[2];
+  return mix(evaluate(v[0], roles), evaluate(v[1], roles), t);
 }
 
 /** Every colour variable a style gives on a theme: roles plus `surface`, `divider`, `chrome-*`, `emph-*`, `area-*-bg`. */

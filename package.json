@@ -1,6 +1,6 @@
 {
   "name": "@bespex/themes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Colour themes and styles shared by the be spex apps",
   "license": "MIT",
   "type": "module",

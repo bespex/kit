@@ -105,7 +105,7 @@ function areas(t, seriesFill) {
         "area-scheme": { css: "var(--sx-scheme)" },
     };
     for (let k = 1; k <= 4; k++)
-        out[`area-${k}-bg`] = t ? ["panel", `area-${k}`, t] : "panel";
+        out[`area-${k}-bg`] = t ? ["panel", `area-${k}`, t, "boost"] : "panel";
     return out;
 }
 /** The style a page has when it sets no axis: the preset "calm". */
@@ -118,8 +118,9 @@ export function cssValue(v) {
         return v.css;
     if (typeof v === "string")
         return `var(--sx-${v})`;
-    const [a, b, t] = v;
-    return `color-mix(in oklab, ${cssValue(a)}, ${cssValue(b)} ${+(t * 100).toFixed(2)}%)`;
+    const [a, b, t, boost] = v;
+    const pct = +(t * 100).toFixed(2);
+    return `color-mix(in oklab, ${cssValue(a)}, ${cssValue(b)} ${boost ? `calc(${pct}% * var(--sx-area-boost, 1))` : `${pct}%`})`;
 }
 /** A colour recipe worked out on the roles of a theme (and the style variables already worked out). */
 export function evaluate(v, roles) {
@@ -129,7 +130,8 @@ export function evaluate(v, roles) {
             throw new Error(`unknown role ${v}`);
         return c;
     }
-    return mix(evaluate(v[0], roles), evaluate(v[1], roles), v[2]);
+    const t = v[3] === "boost" ? v[2] * Number(roles["area-boost"] ?? 1) : v[2];
+    return mix(evaluate(v[0], roles), evaluate(v[1], roles), t);
 }
 /** Every colour variable a style gives on a theme: roles plus `surface`, `divider`, `chrome-*`, `emph-*`, `area-*-bg`. */
 export function styled(roles, style) {

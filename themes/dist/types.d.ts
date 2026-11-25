@@ -31,10 +31,16 @@ export interface ColorTheme {
     onAccent?: string;
     /** The accent on inverted surfaces */
     accentInv?: string;
+    /** Colour of shadows (any CSS colour); default a dark shadow fitting the scheme. Neon lets its
+     *  shadows glow in its accent this way. */
+    shadow?: string;
     /** Six colours for sessions, projects, people, charts */
     series?: string[];
     /** Four colours the regions of a window take with the style axis `color`; default info, tint, ai, accent */
     areas?: string[];
+    /** How much more of the area colours goes into the regions than in other themes (default 1); a
+     *  colourful theme stays colourful with a calm style this way. The check holds every step. */
+    areaBoost?: number;
     code?: Partial<Record<CodeRole, string>>;
     /** The neutral scale, 11 steps from the strongest text (50) to the ground (950) */
     neutral?: string[];

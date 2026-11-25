@@ -1,32 +1,34 @@
 {
   "id": "colorful",
-  "name": {
-    "de": "Bunt",
-    "en": "Colorful"
-  },
+  "name": { "de": "Bunt", "en": "Colorful" },
   "scheme": "light",
-  "bg": "#fdfbfa",
-  "fg": "#22182e",
-  "accent": "#db5b32",
-  "ok": "#3b7a2c",
-  "warn": "#a36000",
-  "danger": "#b42f52",
-  "info": "#0077c2",
-  "ai": "#795bbf",
-  "done": "#00745d",
-  "tint": "#b09de9",
-  "series": [
-    "#6f57ab",
-    "#007e80",
-    "#9e4f98",
-    "#1f6cb0",
-    "#3b7a2c",
-    "#7d7400"
-  ],
-  "areas": [
-    "#3ebfc6",
-    "#e88f87",
-    "#b09de9",
-    "#d79e59"
-  ]
+  "bg": "#fffbf7",
+  "fg": "#241a33",
+  "accent": "#d6336c",
+  "ok": "#2b8a3e",
+  "warn": "#b06500",
+  "danger": "#c92a2a",
+  "info": "#1c7ed6",
+  "ai": "#7048e8",
+  "tint": "#ff8787",
+  "done": "#0c8f72",
+  "series": ["#1c7ed6", "#0ca678", "#e64980", "#7048e8", "#74b816", "#15aabf"],
+  "areas": ["#4dabf7", "#ff8787", "#38d9a9", "#ffd43b"],
+  "areaBoost": 2,
+  "code": {
+    "tag": "#1c7ed6",
+    "attr": "#b06500",
+    "string": "#2b8a3e",
+    "comment": "#7a6f86",
+    "keyword": "#7048e8",
+    "meta": "#d6336c",
+    "entity": "#0c8f72"
+  },
+  "surfaces": {
+    "panel": "#faf6f1",
+    "raised": "#ffffff",
+    "field": "#fffdfb",
+    "hover": "#f3ebe3",
+    "line": "#e8ddd2"
+  }
 }

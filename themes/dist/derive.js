@@ -88,7 +88,8 @@ export function derive(t) {
         tint,
         ai, "on-ai": textOn(ai, bg, t.fg),
         done, "on-done": textOn(done, bg, t.fg),
-        shadow: light ? "rgb(0 0 0 / 0.16)" : "rgb(0 0 0 / 0.45)",
+        "area-boost": String(t.areaBoost ?? 1),
+        shadow: t.shadow ?? (light ? "rgb(0 0 0 / 0.16)" : "rgb(0 0 0 / 0.45)"),
     };
     for (const s of STEPS)
         r[`n-${s}`] = n[s];

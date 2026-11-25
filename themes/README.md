@@ -2,10 +2,10 @@
 
 Colour themes and styles for the be spex apps. The user chooses two things in every app, independently:
 
-- a **colour theme** (only colours): `auto`, `paper`, `graphite`, `sepia`, `fjord`, `sage`, `forest`,
-  `moon`, `elegance`, `colorful`, `neon`, `terminal`, `contrast`;
-- a **style** (only form and weight, no colour of its own): one of four presets, `tool`, `calm`
-  (default), `plastic`, `stage`, or seven steps of the user's own.
+- a **colour theme** (only colours): `auto`, `paper`, `frost`, `sage`, `colorful`, `graphite`, `fjord`,
+  `forest`, `moon`, `elegance`, `neon`, `terminal` (12, four in a row in the picker);
+- a **style** (only form and weight, no colour of its own): one of three presets, `tool`, `calm`
+  (default), `stage`, or seven steps of the user's own.
 
 Each app stores its own choice. All themes pass the same check, with every style.
 
@@ -30,8 +30,10 @@ picker.value = normalize(stored);
 picker.addEventListener("change", (e) => { apply(e.detail); save(e.detail); });
 ```
 
-`axes` lists the style axes that change something in the app; the picker offers only those.
-`layout="compact"` leaves out the preview. Without a build step (Maillet), take `dist/sx.css` and the
+`axes` lists the style axes that change something in the app; the picker offers only those. There is
+no preview: the choice applies to the app at once. Themes and styles stand in four columns, so give the
+picker the width of a settings page (about 440 px or more). Its two headings are the part `label`
+(`sx-appearance::part(label) { … }`), so they can look like the app's own headings. Without a build step (Maillet), take `dist/sx.css` and the
 modules in `dist/` as a copy.
 
 ## Roles

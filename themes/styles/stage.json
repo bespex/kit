@@ -1,2 +1,2 @@
 { "id": "stage", "name": { "de": "Bühne", "en": "Stage" },
-  "shape": "soft", "structure": "surfaces", "chrome": "contrast", "emphasis": "stage", "density": "airy", "color": "colorful", "effects": "rich" }
+  "shape": "round", "structure": "lines", "chrome": "contrast", "emphasis": "stage", "density": "normal", "color": "colorful", "effects": "subtle" }

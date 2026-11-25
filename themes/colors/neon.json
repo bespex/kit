@@ -1,27 +1,21 @@
 {
   "id": "neon",
-  "name": {
-    "de": "Neon",
-    "en": "Neon"
-  },
+  "name": { "de": "Neon", "en": "Neon" },
   "scheme": "dark",
-  "bg": "#09090d",
-  "fg": "#f7f7fb",
-  "accent": "#ff3fbf",
-  "ok": "#7dffb2",
-  "warn": "#ffd60a",
+  "bg": "#08060f",
+  "fg": "#f5f0ff",
+  "accent": "#ff2fd1",
+  "ok": "#3dff8f",
+  "warn": "#ffe14d",
   "danger": "#ff5a36",
   "info": "#8b9dff",
   "ai": "#22e4ff",
+  "tint": "#b026ff",
   "done": "#39ff9f",
-  "tint": "#ff2bd6",
-  "onAccent": "#09090d",
-  "series": [
-    "#22e4ff",
-    "#b98cff",
-    "#5cffd6",
-    "#7db0ff",
-    "#d7ff5c",
-    "#ff9cf0"
-  ]
+  "onAccent": "#08060f",
+  "shadow": "rgb(255 47 209 / 0.38)",
+  "series": ["#22e4ff", "#b98cff", "#5cffd6", "#7db0ff", "#d7ff5c", "#ff9cf0"],
+  "areas": ["#22e4ff", "#b026ff", "#ff2fd1", "#3dff8f"],
+  "code": { "tag": "#22e4ff", "attr": "#ffe14d", "string": "#3dff8f", "comment": "#9a8cc4", "keyword": "#ff2fd1", "meta": "#b98cff", "entity": "#ff9cf0" },
+  "surfaces": { "panel": "#110d1f", "raised": "#1a1430", "field": "#06040b", "hover": "#221a3d", "line": "#2e2252", "overlay": "#1a1430", "overlayLine": "#5a3f9a" }
 }

@@ -1,0 +1,18 @@
+{
+  "id": "frost",
+  "name": { "de": "Frost", "en": "Frost" },
+  "scheme": "light",
+  "bg": "#f4f7fa",
+  "fg": "#14202b",
+  "accent": "#1f6fd1",
+  "ok": "#1e7f4f",
+  "warn": "#9a6200",
+  "danger": "#c53030",
+  "info": "#0e7490",
+  "ai": "#7a4fd6",
+  "tint": "#6b8cae",
+  "onAccent": "#ffffff",
+  "series": ["#3a6fd8", "#8a4fd6", "#0f8a8a", "#c2417a", "#4f7a1f", "#5b6b80"],
+  "code": { "tag": "#1f6fd1", "attr": "#9a6200", "string": "#1e7f4f", "comment": "#647383", "keyword": "#7a4fd6", "meta": "#c2417a", "entity": "#0e7490" },
+  "surfaces": { "panel": "#e9eef4", "raised": "#ffffff", "field": "#eef2f6", "line": "#d6dee7", "mark": "#fde68a" }
+}

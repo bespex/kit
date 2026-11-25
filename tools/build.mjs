@@ -14,9 +14,9 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const themes = join(root, "themes");
 
-/** The order in the pickers: light and dark basics first, then the characters, contrast last. */
-const THEME_ORDER = ["paper", "graphite", "sepia", "fjord", "sage", "forest", "moon", "elegance", "colorful", "neon", "terminal", "contrast"];
-const STYLE_ORDER = ["tool", "calm", "plastic", "stage"];
+/** The order in the pickers, four in a row after "auto": the light themes, then the dark ones. */
+const THEME_ORDER = ["paper", "frost", "ink", "colorful", "graphite", "fjord", "forest", "moon", "elegance", "neon", "terminal"];
+const STYLE_ORDER = ["tool", "calm", "stage"];
 const AUTO = { light: "paper", dark: "graphite" };
 
 const load = (dir, order) => {

@@ -1,0 +1,19 @@
+{
+  "id": "ink",
+  "name": { "de": "Tinte", "en": "Ink" },
+  "scheme": "light",
+  "bg": "#ffffff",
+  "fg": "#111418",
+  "accent": "#2b3a8f",
+  "ok": "#2b7a3d",
+  "warn": "#9a6700",
+  "danger": "#c4231c",
+  "info": "#0e6e8c",
+  "ai": "#7a3f9a",
+  "tint": "#5b6472",
+  "areas": ["#6b7280", "#6b7280", "#2b3a8f", "#2b3a8f"],
+  "onAccent": "#ffffff",
+  "series": ["#2b3a8f", "#0f766e", "#8a3f8f", "#a33a5a", "#4a6b2a", "#5b6472"],
+  "code": { "tag": "#2b3a8f", "attr": "#9a6700", "string": "#2b7a3d", "comment": "#6b7280", "keyword": "#7a3f9a", "meta": "#c4231c", "entity": "#0e6e8c" },
+  "surfaces": { "panel": "#f4f5f7", "raised": "#ffffff", "field": "#fafbfc", "hover": "#eceef1", "line": "#e0e3e7", "mark": "#fff1a8" }
+}

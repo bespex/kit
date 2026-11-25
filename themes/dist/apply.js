@@ -5,10 +5,15 @@ import { STYLES, THEMES } from "./data.gen.js";
 import { DEFAULT_STYLE } from "./style.js";
 import { AXES } from "./types.js";
 export const DEFAULT_APPEARANCE = { theme: "auto", style: "calm" };
+/** Themes that left the set, and the one a stored choice moves to (PLAN.md K8). */
+export const RETIRED = { sepia: "paper", contrast: "graphite", sage: "ink" };
+/** Styles that left the set, and the one a stored choice moves to. */
+export const RETIRED_STYLES = { plastic: "calm" };
 /** The seven steps of a stored style: a preset's, or the stored steps with unknown values replaced. */
 export function resolveStyle(style) {
     if (typeof style === "string") {
-        const p = STYLES.find((s) => s.id === style);
+        const id = RETIRED_STYLES[style] ?? style;
+        const p = STYLES.find((s) => s.id === id);
         if (p)
             return pick(p);
         return { ...DEFAULT_STYLE };
@@ -30,7 +35,8 @@ export function compactStyle(style) {
 /** A stored value made safe: unknown themes become "auto", broken styles the default. */
 export function normalize(value) {
     const v = (value && typeof value === "object" ? value : {});
-    const theme = typeof v.theme === "string" && (v.theme === "auto" || THEMES.some((t) => t.id === v.theme)) ? v.theme : DEFAULT_APPEARANCE.theme;
+    const asked = typeof v.theme === "string" ? (RETIRED[v.theme] ?? v.theme) : "";
+    const theme = asked === "auto" || THEMES.some((t) => t.id === asked) ? asked : DEFAULT_APPEARANCE.theme;
     const style = v.style === undefined ? DEFAULT_APPEARANCE.style : compactStyle(resolveStyle(v.style));
     return { theme, style };
 }

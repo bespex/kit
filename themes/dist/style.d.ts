@@ -1,6 +1,7 @@
 import type { Axis, Roles, Style } from "./types.js";
-/** A colour from roles: a role's name, or `[a, b, t]` = a moved by t towards b (OKLab). */
-export type Expr = string | [Expr, Expr, number];
+/** A colour from roles: a role's name, or `[a, b, t]` = a moved by t towards b (OKLab). With a fourth
+ *  element `"boost"`, t is multiplied by the theme's `area-boost` (a theme that wants stronger regions). */
+export type Expr = string | [Expr, Expr, number] | [Expr, Expr, number, "boost"];
 /** A value of a style variable: a colour recipe, or plain CSS (`{ css: "…" }`). */
 export type Value = Expr | {
     css: string;
