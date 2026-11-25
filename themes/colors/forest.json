@@ -1,0 +1,34 @@
+{
+  "id": "forest",
+  "name": {
+    "de": "Wald",
+    "en": "Forest"
+  },
+  "scheme": "dark",
+  "bg": "#1b1611",
+  "fg": "#f0e9dc",
+  "accent": "#f99549",
+  "ok": "#87d576",
+  "warn": "#f2cf3b",
+  "danger": "#f0555b",
+  "info": "#c8a47a",
+  "ai": "#bca1ed",
+  "done": "#7eabf6",
+  "tint": "#706052",
+  "series": [
+    "#bca1ed",
+    "#e887b6",
+    "#5fc0dd",
+    "#9ad95f",
+    "#f2b48f",
+    "#e6e0d0"
+  ],
+  "surfaces": {
+    "panel": "#251f1a",
+    "raised": "#342c26",
+    "line": "#3d352d",
+    "overlay": "#2d3522",
+    "overlayHover": "#3a442d",
+    "overlayLine": "#515d45"
+  }
+}

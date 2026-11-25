@@ -1,0 +1,26 @@
+{
+  "id": "moon",
+  "name": {
+    "de": "Mond",
+    "en": "Moon"
+  },
+  "scheme": "dark",
+  "bg": "#121417",
+  "fg": "#e8ebf0",
+  "accent": "#e9c46a",
+  "ok": "#8fd3a0",
+  "warn": "#ff9f6e",
+  "danger": "#ff6b81",
+  "info": "#a9c1d6",
+  "ai": "#bcabf1",
+  "done": "#82d8c1",
+  "tint": "#5a6a8a",
+  "surfaces": {
+    "panel": "#191c21",
+    "raised": "#272a30",
+    "line": "#2f333a",
+    "overlay": "#1b273e",
+    "overlayHover": "#283751",
+    "overlayLine": "#41506c"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "terminal",
+  "name": {
+    "de": "Terminal",
+    "en": "Terminal"
+  },
+  "scheme": "dark",
+  "bg": "#0a0d0b",
+  "fg": "#d4ead8",
+  "accent": "#d78cff",
+  "ok": "#87e07a",
+  "warn": "#ffd75f",
+  "danger": "#ff6b6b",
+  "info": "#87afff",
+  "ai": "#5fd7ff",
+  "done": "#87d7af",
+  "tint": "#3fbf6a",
+  "onAccent": "#0a0d0b",
+  "series": [
+    "#5fd7ff",
+    "#afafff",
+    "#87d7af",
+    "#d7af87",
+    "#afd75f",
+    "#ffafd7"
+  ]
+}

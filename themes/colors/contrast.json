@@ -1,0 +1,25 @@
+{
+  "id": "contrast",
+  "name": {
+    "de": "Kontrast",
+    "en": "Contrast"
+  },
+  "scheme": "dark",
+  "bg": "#000000",
+  "fg": "#ffffff",
+  "accent": "#ff9500",
+  "ok": "#00ff6a",
+  "warn": "#ffee00",
+  "danger": "#ff4d6d",
+  "info": "#6fb1ff",
+  "ai": "#00e5ff",
+  "onAccent": "#000000",
+  "series": [
+    "#00e5ff",
+    "#c792ff",
+    "#00ffc8",
+    "#ff8ad8",
+    "#7fbfff",
+    "#9dff4d"
+  ]
+}

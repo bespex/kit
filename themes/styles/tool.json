@@ -1,0 +1,2 @@
+{ "id": "tool", "name": { "de": "Werkzeug", "en": "Tool" },
+  "shape": "sharp", "structure": "lines", "chrome": "flat", "emphasis": "calm", "density": "compact", "color": "neutral", "effects": "none" }

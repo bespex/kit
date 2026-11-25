@@ -1,0 +1,58 @@
+{
+  "id": "graphite",
+  "name": {
+    "de": "Graphit",
+    "en": "Graphite"
+  },
+  "scheme": "dark",
+  "bg": "#1b1e22",
+  "fg": "#f5f6f7",
+  "accent": "#f26500",
+  "ok": "#9cc39a",
+  "warn": "#e0a868",
+  "danger": "#e66a78",
+  "info": "#8fb1cf",
+  "ai": "#818cf8",
+  "accentFill": "#bd4f00",
+  "accentFillHover": "#a94600",
+  "onAccent": "#ffffff",
+  "accentInk": "#ff8a3c",
+  "series": [
+    "#7f95ff",
+    "#c08cf5",
+    "#4fc9bd",
+    "#e391d0",
+    "#62b6ee",
+    "#c3cf6c"
+  ],
+  "code": {
+    "tag": "#569cd6",
+    "attr": "#9cdcfe",
+    "string": "#ce9178",
+    "comment": "#6a9955",
+    "keyword": "#4ec9b0",
+    "meta": "#c586c0",
+    "entity": "#d7ba7d"
+  },
+  "neutral": [
+    "#f5f6f7",
+    "#e8eaec",
+    "#d2d6da",
+    "#b9bec4",
+    "#a9afb5",
+    "#959ca4",
+    "#757c84",
+    "#3a3f46",
+    "#30343a",
+    "#282b31",
+    "#1b1e22"
+  ],
+  "surfaces": {
+    "panel": "#24272c",
+    "raised": "#2e3238",
+    "line": "#3a3f46",
+    "overlay": "#32373e",
+    "overlayHover": "#424850",
+    "overlayLine": "#4d545c"
+  }
+}

@@ -5,11 +5,11 @@ needs, at a version it chooses.
 
 | Part | What it is | Used by |
 |---|---|---|
-| [`themes/`](themes/) | Colour themes and styles as data, the rules that derive and check them, CSS variables, pickers as web components | CodeDeck, Tasqlet, Maillet, the Qiew apps |
-| [`desktop/`](desktop/) | Rust crate `bespex-desktop`: tray icon with status marks, X11/Wayland and desktop detection, single instance and local socket, config files, autostart | Tasqlet, CodeDeck, Maillet |
-| [`docs/interop.md`](docs/interop.md) | How the apps work together: command lines, URL schemes, socket protocol | every app that offers or uses a hand-over |
-| [`docs/mcp.md`](docs/mcp.md) | Convention for MCP servers of the apps | Tasqlet, then Maillet, CodeDeck |
-| [`docs/glossary.md`](docs/glossary.md) | Shared terms in German and English, with their meaning | every app |
+| [`themes/`](themes/) | Colour themes and styles as data, the rules that derive and check them, CSS variables, the picker `<sx-appearance>` | Tasqlet; CodeDeck, Maillet and the Qiew apps follow |
+| `desktop/` (planned) | Rust crate `bespex-desktop`: tray icon with status marks, X11/Wayland and desktop detection, single instance and local socket, config files, autostart | Tasqlet, CodeDeck, Maillet |
+| `docs/interop.md` (planned) | How the apps work together: command lines, URL schemes, socket protocol | every app that offers or uses a hand-over |
+| `docs/mcp.md` (planned) | Convention for MCP servers of the apps | Tasqlet, then Maillet, CodeDeck |
+| `docs/glossary.md` (planned) | Shared terms in German and English, with their meaning | every app |
 
 Nothing here is a framework. A part exists only if at least two apps use it.
 
@@ -27,7 +27,8 @@ Rust apps:
 bespex-desktop = { git = "https://github.com/bespex/kit", tag = "desktop-v0.1.0" }
 ```
 
-Apps without a build step (Maillet) copy `themes/dist/` at a tag with a small script.
+Apps without a build step (Maillet) copy `themes/dist/` at a tag with a small script. How to use the
+themes: [themes/README.md](themes/README.md).
 
 ## Versions
 

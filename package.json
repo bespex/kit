@@ -1,0 +1,31 @@
+{
+  "name": "@bespex/themes",
+  "version": "0.1.0",
+  "description": "Colour themes and styles shared by the be spex apps",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./themes/dist/index.d.ts",
+      "default": "./themes/dist/index.js"
+    },
+    "./appearance": {
+      "types": "./themes/dist/appearance.d.ts",
+      "default": "./themes/dist/appearance.js"
+    },
+    "./sx.css": "./themes/dist/sx.css"
+  },
+  "files": [
+    "themes/dist",
+    "themes/colors",
+    "themes/styles"
+  ],
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "check": "node tools/check.mjs",
+    "gallery": "python3 -m http.server 4380"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0"
+  }
+}

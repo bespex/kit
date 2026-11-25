@@ -1,0 +1,27 @@
+{
+  "id": "neon",
+  "name": {
+    "de": "Neon",
+    "en": "Neon"
+  },
+  "scheme": "dark",
+  "bg": "#09090d",
+  "fg": "#f7f7fb",
+  "accent": "#ff3fbf",
+  "ok": "#7dffb2",
+  "warn": "#ffd60a",
+  "danger": "#ff5a36",
+  "info": "#8b9dff",
+  "ai": "#22e4ff",
+  "done": "#39ff9f",
+  "tint": "#ff2bd6",
+  "onAccent": "#09090d",
+  "series": [
+    "#22e4ff",
+    "#b98cff",
+    "#5cffd6",
+    "#7db0ff",
+    "#d7ff5c",
+    "#ff9cf0"
+  ]
+}

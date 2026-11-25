@@ -1,0 +1,17 @@
+{
+  "id": "elegance",
+  "name": {
+    "de": "Eleganz",
+    "en": "Elegance"
+  },
+  "scheme": "dark",
+  "bg": "#161412",
+  "fg": "#efe9df",
+  "accent": "#d4af6a",
+  "ok": "#9db59a",
+  "warn": "#d1834b",
+  "danger": "#d4483f",
+  "info": "#93a9bb",
+  "ai": "#a9b4d0",
+  "tint": "#8a7350"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "fjord",
+  "name": { "de": "Fjord", "en": "Fjord" },
+  "scheme": "dark",
+  "bg": "#15202b",
+  "fg": "#e6edf3",
+  "accent": "#7cbcff",
+  "ok": "#8fcf9a",
+  "warn": "#e0b070",
+  "danger": "#e6707a",
+  "info": "#8fb1cf",
+  "ai": "#b4a4ff",
+  "tint": "#6a87a3",
+  "onAccent": "#0c1620",
+  "accentSoft": "#1c3449",
+  "accentInv": "#1d5ca8",
+  "areas": ["#8fb1cf", "#6a87a3", "#b4a4ff", "#7cbcff"],
+  "code": { "tag": "#81a1c1", "attr": "#8fbcbb", "string": "#a3be8c", "comment": "#8b98b0", "keyword": "#b48ead", "meta": "#d08770", "entity": "#ebcb8b" },
+  "surfaces": { "panel": "#1b2836", "field": "#111a23", "hover": "#223243", "line": "#2a3a4a", "lineStrong": "#6a87a3", "mark": "#4d4520" }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "paper",
+  "name": {
+    "de": "Papier",
+    "en": "Paper"
+  },
+  "scheme": "light",
+  "bg": "#fdf9f4",
+  "fg": "#3a2a1f",
+  "accent": "#be5a0a",
+  "ok": "#397949",
+  "warn": "#8b6e00",
+  "danger": "#af2b25",
+  "info": "#346b84",
+  "ai": "#1e71ac",
+  "done": "#007b70",
+  "tint": "#a07850",
+  "series": [
+    "#4f6fae",
+    "#8b5a9e",
+    "#2f7f7a",
+    "#a65a6e",
+    "#3f7a3a",
+    "#5b6470"
+  ],
+  "code": {
+    "tag": "#116329",
+    "attr": "#953800",
+    "string": "#0a3069",
+    "comment": "#6e7781",
+    "keyword": "#8250df",
+    "meta": "#cf222e",
+    "entity": "#0550ae"
+  },
+  "neutral": [
+    "#271d15",
+    "#362b23",
+    "#463b32",
+    "#54483f",
+    "#5f5349",
+    "#6a5e54",
+    "#85786e",
+    "#d6c8bd",
+    "#e3d4c9",
+    "#f0e2d6",
+    "#fdf9f4"
+  ],
+  "surfaces": {
+    "panel": "#eee0d2",
+    "raised": "#f7efe5",
+    "line": "#d8c8b6",
+    "overlay": "#fffdfa",
+    "overlayHover": "#f4e9dd",
+    "overlayLine": "#cdbaa6"
+  }
+}

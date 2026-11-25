@@ -1,0 +1,32 @@
+{
+  "id": "colorful",
+  "name": {
+    "de": "Bunt",
+    "en": "Colorful"
+  },
+  "scheme": "light",
+  "bg": "#fdfbfa",
+  "fg": "#22182e",
+  "accent": "#db5b32",
+  "ok": "#3b7a2c",
+  "warn": "#a36000",
+  "danger": "#b42f52",
+  "info": "#0077c2",
+  "ai": "#795bbf",
+  "done": "#00745d",
+  "tint": "#b09de9",
+  "series": [
+    "#6f57ab",
+    "#007e80",
+    "#9e4f98",
+    "#1f6cb0",
+    "#3b7a2c",
+    "#7d7400"
+  ],
+  "areas": [
+    "#3ebfc6",
+    "#e88f87",
+    "#b09de9",
+    "#d79e59"
+  ]
+}
