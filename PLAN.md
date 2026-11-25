@@ -2,7 +2,8 @@
 
 Was das Kit noch bekommen soll. Stand 2026-11-25. Gebaut ist `themes/` (Version 0.1.0: 12 Farbthemen
 plus „Automatisch“, vier Stile, sieben Achsen, Prüfung, `<sx-appearance>`, Galerie), beschrieben in
-`themes/README.md`. Erster Nutzer ist Tasqlet (dort D38).
+`themes/README.md`, getaggt als `themes-v0.1.0`. Erster Nutzer ist Tasqlet (dort D38), eingebunden über
+den Git-Tag.
 
 **Grundsatz:** Ins Kit kommt nur, was mindestens zwei Apps wirklich nutzen. Was sich nicht lohnt, wird
 nicht gebaut: kein geteilter i18n-Code, keine MCP-Bibliothek, kein gemeinsames Popover, kein Rahmen für
@@ -29,13 +30,6 @@ Einstellungsseiten.
 - Pictorix und HatRack bekommen mindestens `auto` (Papier/Graphit) aus `sx.css`.
 
 ## Geplante Umsetzungen
-
-### K0 Erste Veröffentlichung
-
-- Tag `themes-v0.1.0` setzen und pushen.
-- Tasqlet von `"file:../kit"` auf `"github:bespex/kit#themes-v0.1.0"` umstellen, damit seine CI und
-  die Release-Builds das Kit laden.
-- Die CI des Kits (`.github/workflows/ci.yml`) läuft beim ersten Push zum ersten Mal.
 
 ### K8 Paletten überarbeiten (am Ende)
 
