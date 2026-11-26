@@ -6,7 +6,9 @@ needs, at a version it chooses.
 | Part | What it is | Used by |
 |---|---|---|
 | [`themes/`](themes/) | Colour themes and styles as data, the rules that derive and check them, CSS variables, the picker `<sx-appearance>` | Tasqlet; CodeDeck, Maillet and the Qiew apps follow |
+| `ui/` (planned) | `@bespex/ui`: the building blocks of the tray windows as CSS classes over the theme roles, no JavaScript | Tasqlet, Maillet |
 | `desktop/` (planned) | Rust crate `bespex-desktop`: tray icon with status marks, X11/Wayland and desktop detection, single instance and local socket, config files, autostart | Tasqlet, CodeDeck, Maillet |
+| `docs/popover.md` (planned) | Frame, building blocks, flows and keys every tray app shares (popover or sidebar) | Tasqlet, Maillet |
 | `docs/interop.md` (planned) | How the apps work together: command lines, URL schemes, socket protocol | every app that offers or uses a hand-over |
 | `docs/mcp.md` (planned) | Convention for MCP servers of the apps | Tasqlet, then Maillet, CodeDeck |
 | `docs/glossary.md` (planned) | Shared terms in German and English, with their meaning | every app |

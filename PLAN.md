@@ -6,8 +6,9 @@ plus „Automatisch“, vier Stile, sieben Achsen, Prüfung, `<sx-appearance>`, 
 den Git-Tag.
 
 **Grundsatz:** Ins Kit kommt nur, was mindestens zwei Apps wirklich nutzen. Was sich nicht lohnt, wird
-nicht gebaut: kein geteilter i18n-Code, keine MCP-Bibliothek, kein gemeinsames Popover, kein Rahmen für
-Einstellungsseiten.
+nicht gebaut: kein geteilter i18n-Code, keine MCP-Bibliothek, keine gemeinsame Popover-Logik oder
+-Komponente, kein Rahmen für Einstellungsseiten. Gemeinsam sind dagegen Aufbau und Bedienung der
+Tray-Fenster (K9): als Beschreibung und als CSS-Bausteine, ohne JavaScript.
 
 ## Brainstorm-Ideen
 
@@ -86,7 +87,10 @@ Dünne Helfer statt eines Rahmens: Die App baut Menü und Verhalten weiter selbs
   (Tasqlet `instance.rs`, CodeDeck `hub.rs`).
 - **Konfiguration:** `~/.config/<app>/`, atomar schreiben, Migration alter Formate.
 - **Autostart** (Tasqlet, CodeDeck).
-- Nicht im Crate: Tasqlets Popover-Positionierung, Menüs, globale Tastenkürzel (Tauri-Plugin genügt).
+- **Fensterform** nach K9: Popover am Symbol oder Seitenleiste, Seite des Trays erkennen und merken,
+  Ausblenden bei Fokusverlust, Anheften, Höhe nach Inhalt in Grenzen, breite Details (heute Maillet
+  `app/windows.rs`, Tasqlet `popover.rs`).
+- Nicht im Crate: Menüs, globale Tastenkürzel (Tauri-Plugin genügt).
 
 **Abnahme:** Tasqlet, CodeDeck und Maillet nutzen das Crate; ihr Tray-Code schrumpft auf Zustand und
 Menü; Abnahme auf Cinnamon (X11), KDE (Wayland), GNOME mit und ohne AppIndicator-Erweiterung.
@@ -105,3 +109,65 @@ Menü; Abnahme auf Cinnamon (X11), KDE (Wayland), GNOME mit und ohne AppIndicato
 - **`docs/glossary.md`**: Begriff, de, en, Bedeutung, App. Erste Einträge: Farbthema, Stil, Tray,
   Einstellungen, Aufgabe und Idee (Tasqlet), **Vorgang** (Maillet: eine Mail, die noch Arbeit braucht;
   ersetzt dort „Task“, die Ordner `Tasks/…` werden umbenannt).
+
+### K9 Rahmen der Tray-Apps: `docs/popover.md` und `ui/`
+
+Entschieden mit dem Nutzer am 2026-11-26. Maillet und Tasqlet sollen wie aus einer Produktfamilie
+wirken, ohne dass man sie verwechselt: gleicher Rahmen, gleiche Bausteine, gleiche Abläufe und Tasten;
+der Inhalt dazwischen bleibt je App eigen (Maillet Kartenraster, Tasqlet Schnelleingabe, Arbeitskarte,
+Queue). Farben und Themen sind nicht betroffen. Eine spätere Tray-App bekommt den Rahmen gleich mit.
+Konzeptseite mit Entwürfen: https://claude.ai/artifact/HgkRkQKisYG6rGVmbtjBcD (Entwürfe in
+`.scratch/popover/`).
+
+**`docs/popover.md`**, der Vertrag für jede Tray-App:
+
+- **Fensterform:** Einstellung „Öffnen als“, *Popover am Symbol* oder *Seitenleiste*. Die Wahl gilt
+  immer, gleich ob Tray-Klick oder globale Taste. Vorgabe: Popover.
+  - **Popover:** 700 px breit, am Symbol. Die Höhe darf von der Grundhöhe 680 px abweichen, wenn der
+    Inhalt es rechtfertigt, auch dynamisch nach Inhalt, aber in festen Grenzen (Untergrenze und
+    Obergrenze legt das Dokument fest, nie größer als die Arbeitsfläche). Blendet bei Fokusverlust aus,
+    außer angeheftet oder bei offenem Einstellungsfenster.
+  - **Seitenleiste:** 700 px breit, volle Höhe der Arbeitsfläche, am Rand der Bildschirmhälfte mit dem
+    Tray-Symbol. Einstellung „Seite“: automatisch, links, rechts; ohne bekannte Lage (Wayland, erster
+    Start über die Taste) die zuletzt bekannte, sonst rechts. Bleibt bei Fokusverlust stehen, liegt aber
+    nur angeheftet über anderen Fenstern; Tray-Klick oder Taste holen eine verdeckte Seitenleiste nach
+    vorn und blenden erst eine vorne liegende aus. Eine angeheftete Seitenleiste blendet die Taste nie
+    aus, sie holt sie nur mit dem Fokus nach vorn.
+- **Kopfleiste** (48 px): App-Symbol links, Reiter mit Zahl, rechts Suche · Anheften · Einstellungen in
+  dieser Reihenfolge. Kein Schließen-Knopf; Esc, Klick daneben, Tray-Klick oder Taste blenden aus.
+  Anheften (📌) haben beide Apps, in beiden Formen: Das Popover bleibt dann offen, die Seitenleiste
+  im Vordergrund.
+- **Statusleiste** (30 px): links der Zustand der App in einem Satz, ein Klick zeigt Details; in der
+  Mitte höchstens eine Aktion als Link; rechts „Esc blendet aus“.
+- **Hinweis-Banner** unter der Kopfleiste für Zustände, die Handeln brauchen, mit einer Aktion; kein
+  Popup. **Rückmeldung** mittig über der Statusleiste mit „Rückgängig“, danach `Strg+Z`.
+- **Suche** als eigene Seite (⌕ oder `Strg+F`, Feld oben, Treffer darunter, Esc zurück).
+- **Details:** oben eine Aktionsleiste (Hauptaktion links als gefüllter Knopf, weitere daneben,
+  Markierungen rechts), darunter der Inhalt, Esc zurück. Breit: im Popover in die Bildschirmmitte
+  (Größen wie Tasqlet D34), in der Seitenleiste vom Rand zur Mitte hin.
+- **Bausteine:** Abschnittskopf (Symbol, Name, Zahl, rechts Filterchips oder eine Aktion), Karte,
+  betonte Karte (`.sx-emphasis`, Hauptknopf rechts oben), Zeile, Chip, Pille, runde Hauptaktion,
+  Symbolknopf, Aktionsknopf mit Text, Toast, Banner, Statusleiste.
+- **Abläufe:** Werkzeuge erscheinen nur an der gewählten oder überfahrenen Karte/Zeile; die
+  Hauptaktion ist ein runder Knopf rechts außen; weitere Aktionen links daneben in der Reihenfolge
+  Weitergeben, Umwandeln, Ablegen, der Rest unter `…`. Erledigtes geht sofort weg, mit Rückgängig.
+- **Einstellungsfenster** (820 × 720, eigenes Fenster, das Popover bleibt offen und übernimmt
+  Änderungen sofort): links die Navigation mit App-Symbol, Namen und „Einstellungen“, darunter die
+  Bereiche (Allgemein und Theme zuerst), unten optional Aktionen der App; rechts Seitentitel und je
+  Einstellung eine Karte: Titel links, kurzes Bedienelement (Knopfreihe, Schalter, kurzes Feld) rechts
+  daneben, Erklärung darunter, Längeres (Listen, Eingabezeilen) unter der Erklärung. Für zwei bis vier
+  Möglichkeiten eine Knopfreihe, kein natives Auswahlfeld. Gebaut in Maillet und Tasqlet (2026-11-26).
+- **Tasten:** `Strg+1…n` und `Strg+Tab` (`⇧` zurück) wechseln die Reiter, `Strg+F` Suche, `Strg+Z`
+  rückgängig, Pfeile, `Pos1`, `Ende` wählen aus, `⏎` öffnet (an der betonten Karte: Hauptaktion), `Esc`
+  schließt stufenweise (Menü, Details, Suche, Fenster). App-eigene Tasten bleiben.
+
+**`ui/`** (`@bespex/ui`, Tags `ui-v…`): `sx-ui.css` mit den Bausteinen als Klassen über den Rollen
+`--sx-*`, ohne JavaScript, dazu eine Galerie-Seite. Tasqlet bindet es über den Git-Tag ein, Maillet
+kopiert es wie `dist/kit` (`tools/update-kit.sh` erweitern). Das Fensterverhalten folgt später im Crate
+(K6).
+
+**Reihenfolge:** K9 (Dokument und `ui-v0.1.0`), dann Tasqlet 2.8, dann Maillet P1 und P2 (Maillet
+`PLAN.md`).
+
+**Abnahme:** Beide Apps nutzen `@bespex/ui`; beide nacheinander öffnen, jeden Ablauf einmal mit
+Tastatur und einmal mit Maus, in Popover und Seitenleiste, mit dem Tray links und rechts.
