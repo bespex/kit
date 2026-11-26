@@ -134,7 +134,8 @@ Konzeptseite mit Entwürfen: https://claude.ai/artifact/HgkRkQKisYG6rGVmbtjBcD (
     vorn und blenden erst eine vorne liegende aus. Eine angeheftete Seitenleiste blendet die Taste nie
     aus, sie holt sie nur mit dem Fokus nach vorn.
 - **Kopfleiste** (48 px): App-Symbol links, Reiter mit Zahl, rechts Suche · Anheften · Einstellungen in
-  dieser Reihenfolge. Kein Schließen-Knopf; Esc, Klick daneben, Tray-Klick oder Taste blenden aus.
+  dieser Reihenfolge. Reiter dürfen aus Daten der App entstehen (Maillet: je Postfach einer); zu lange
+  Namen werden gekürzt. Kein Schließen-Knopf; Esc, Klick daneben, Tray-Klick oder Taste blenden aus.
   Anheften (📌) haben beide Apps, in beiden Formen: Das Popover bleibt dann offen, die Seitenleiste
   im Vordergrund.
 - **Statusleiste** (30 px): links der Zustand der App in einem Satz, ein Klick zeigt Details; in der
@@ -157,7 +158,14 @@ Konzeptseite mit Entwürfen: https://claude.ai/artifact/HgkRkQKisYG6rGVmbtjBcD (
   Einstellung eine Karte: Titel links, kurzes Bedienelement (Knopfreihe, Schalter, kurzes Feld) rechts
   daneben, Erklärung darunter, Längeres (Listen, Eingabezeilen) unter der Erklärung. Für zwei bis vier
   Möglichkeiten eine Knopfreihe, kein natives Auswahlfeld. Gebaut in Maillet und Tasqlet (2026-11-26).
-- **Tasten:** `Strg+1…n` und `Strg+Tab` (`⇧` zurück) wechseln die Reiter, `Strg+F` Suche, `Strg+Z`
+  **Kein sichtbarer Aufbau:** Das Fenster (wie jedes Nebenfenster, z. B. „Über“) wird unsichtbar gebaut
+  und zeigt sich erst, wenn Übersetzung und erster Bereich mit seinen Daten fertig sind: Die Seite ruft
+  dann das Kommando `window_ready`, das das Fenster einmal zeigt und fokussiert (`reveal`). Meldet sie
+  sich nicht, zeigt Rust es nach `READY_TIMEOUT_MS` = 1500 ms trotzdem. Daten für den ersten Bereich
+  parallel laden; ohne Einrichtung gleich den passenden Bereich öffnen statt nachträglich zu springen.
+  Das unsichtbare Fenster zählt als „öffnet gerade“, damit das Popover offen bleibt. Gebaut in Maillet
+  (2026-11-26); Namen gleich halten, damit der Code später ins Crate (K6) wandert.
+- **Tasten:** `Strg+1…n` (die sichtbaren Reiter von links) und `Strg+Tab` (`⇧` zurück) wechseln die Reiter, `Strg+F` Suche, `Strg+Z`
   rückgängig, Pfeile, `Pos1`, `Ende` wählen aus, `⏎` öffnet (an der betonten Karte: Hauptaktion), `Esc`
   schließt stufenweise (Menü, Details, Suche, Fenster). App-eigene Tasten bleiben.
 
